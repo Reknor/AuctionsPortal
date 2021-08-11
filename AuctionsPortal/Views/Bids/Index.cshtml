@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BartlomiejJagielloLab5ZadDom.Models.Bid>
+
+@{
+    ViewData["Title"] = "Auction's bids";
+}
+
+<!-- Display auction name-->
+<h2>@TempData["auctionName"]</h2>
+
+
+<p>
+    @Html.ActionLink("Add bid", "Create", "Bids")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.User.Login)
+            </th>
+        </tr>
+    </thead>
+
+    <!-- Display id, price and user login for every bid in selected auction -->
+    <tbody>
+        @foreach (var bid in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => bid.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => bid.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => bid.User.Login)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

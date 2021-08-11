@@ -1,0 +1,43 @@
+﻿@model BartlomiejJagielloLab5ZadDom.Models.Auction
+
+@{
+    ViewData["Title"] = "Change auction";
+}
+
+
+@using (Html.BeginForm("Update", "Auctions", FormMethod.Post))
+{
+    // Auction title
+<div class="form-group">
+    @Html.LabelFor(model => model.Name)
+    <div class="col-md">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="col-md">
+        @Html.TextBoxFor(model => model.Name)
+    </div>
+</div>
+
+    // Seller Id
+<div class="form-group">
+    @Html.LabelFor(model => model.SellerId)
+    <div class="col-md">
+        @Html.DisplayFor(model => model.SellerId)
+    </div>
+    <div class="col-md">
+        @Html.TextBoxFor(model => model.SellerId)
+    </div>
+</div>
+
+    // Item Id
+<div class="form-group">
+    @Html.LabelFor(model => model.ItemId)
+    <div class="col-md">
+        @Html.DisplayFor(model => model.ItemId)
+    </div>
+    <div class="col-md">
+        @Html.TextBoxFor(model => model.ItemId)
+    </div>
+</div>
+    <input type="submit" value="Save" class="btn btn-primary" />
+}

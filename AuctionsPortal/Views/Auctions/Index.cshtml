@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BartlomiejJagielloLab5ZadDom.Models.Auction>
+
+@{
+    ViewData["Title"] = "Auctions list";
+}
+
+<p>
+    @Html.ActionLink("Create new", "Create", "Auctions")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Seller.Login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Item)
+            </th>
+            <th>
+                <!-- Header for bids link -->
+            </th>
+            <th>
+                <!-- Header for modify link -->
+            </th>
+            <th>
+                <!-- Header for delete link -->
+            </th>
+        </tr>
+    </thead>
+
+    <!-- Display every auction's id, name, seller login and item name-->
+    <tbody>
+        @foreach (var auction in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => auction.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => auction.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => auction.Seller.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => auction.Item.Name)
+            </td>
+            <!-- Check all bids for auction -->
+            <td>
+                @Html.ActionLink("Bids", "Index", "Bids", routeValues: new { AuctionId = auction.Id })
+            </td>
+            <!-- Change auction -->
+            <td>
+                @Html.ActionLink("Modify", "Update", "Auctions", routeValues: new { id = auction.Id })
+            </td>
+            <!-- Delete auction -->
+            <td>
+                @Html.ActionLink("Delete", "Delete", "Auctions", routeValues: new { id = auction.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

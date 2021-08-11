@@ -1,0 +1,26 @@
+﻿@model BartlomiejJagielloLab5ZadDom.Models.Bid
+
+@{
+    ViewData["Title"] = "New bid";
+}
+
+@using (Html.BeginForm("Create", "Bids", FormMethod.Post))
+{
+    // Bid price
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        <div class="col-md">
+            @Html.TextBoxFor(model => model.Price)
+        </div>
+    </div>
+
+    // Buyer Id
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserId)
+        <div class="col-md">
+            @Html.TextBoxFor(model => model.UserId)
+        </div>
+    </div>
+
+    <input type="submit" value="Add bid" class="btn btn-primary" />
+}

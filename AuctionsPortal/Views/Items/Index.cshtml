@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BartlomiejJagielloLab5ZadDom.Models.Item>
+
+@{
+    ViewData["Title"] = "Items list";
+}
+
+<!-- Add new item link -->
+<p>
+    @Html.ActionLink("Add", "Create", "Items")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Description)
+            </th>
+        </tr>
+    </thead>
+
+    <!-- Display all items id, name and description -->
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
