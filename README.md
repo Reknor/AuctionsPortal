@@ -5,6 +5,3 @@ Built with Entity Framework
 
 
 ![Screenshot](images/s2.png)
-
-
-![Screenshot](images/s3.png)
